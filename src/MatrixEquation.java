@@ -10,8 +10,12 @@ public class MatrixEquation extends Equation {
     }
 
     @Override
+    public double evaluate(double x) {
+       return 0;
+    }
+
+    @Override
     public EquationResult solve() {
-        int n = constants.length;
         double[] solution = gaussianElimination(coefficients, constants);
 
         if (solution == null) {

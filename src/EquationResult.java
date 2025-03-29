@@ -5,6 +5,7 @@ public class EquationResult {
         this.solution = solution;
     }
 
+
     @Override
     public String toString() {
         return solution;

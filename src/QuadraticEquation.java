@@ -8,6 +8,11 @@ public class QuadraticEquation extends Equation {
     }
 
     @Override
+    public double evaluate(double x) {
+        return a * x * x + b * x + c;
+    }
+
+    @Override
     public EquationResult solve() {
         double discriminant = b * b - 4 * a * c;
         if (discriminant > 0) {
@@ -18,7 +23,11 @@ public class QuadraticEquation extends Equation {
             double x = -b / (2 * a);
             return new EquationResult("x = " + x);
         } else {
-            return new EquationResult("No real solutions");
+            double realPart = -b / (2 * a);
+        double imaginaryPart = Math.sqrt(-discriminant) / (2 * a);
+        String root1 = realPart + " + " + imaginaryPart + "i";
+        String root2 = realPart + " - " + imaginaryPart + "i";
+        return new EquationResult("x1 = " + root1 + ", x2 = " + root2);
         }
     }
 }
